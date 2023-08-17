@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@dagrejs/dagre": "^1.0.2",
+    "ketcher-react": "^2.12.0",
+    "ketcher-standalone": "^2.12.0",
+    "reactflow": "^11.8.2"
+  }
+}
