@@ -1,0 +1,15 @@
+
+.react-flow__node-molecule {
+    margin: 10px;
+    border: 1px solid #e2dfdf;
+}
+.react-flow__node-molecule.selectable.selected, .react-flow__node-molecule.selectable:focus, .react-flow__node-molecule.selectable:focus-visible {
+    border: 1px #e2dfdf;
+    box-shadow: 0 0 0 1px #000;
+}
+.react-flow__node-molecule:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+div[data-handlepos] {
+    opacity: 0;
+}
