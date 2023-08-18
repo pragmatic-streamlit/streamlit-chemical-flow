@@ -95,8 +95,7 @@ if not _RELEASE:
             'markerEnd': {'type': 'arrow', 'color': '#000'}
         }
     ]
-    selected_node, selected_edge = chemical_flow(nodes, edges)
-    if selected_node:
-        print(f"node selected {selected_node}")
-    if selected_edge:
-        print(f"edge selected {selected_edge}")
+    selected_event = chemical_flow(nodes, edges)
+    if selected_event:
+        st.json(selected_event)
+        print(f"selected {selected_event}")
