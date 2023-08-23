@@ -1,4 +1,5 @@
 import 'reactflow/dist/style.css';
+import "./molecule-edge.css";
 import "./molecule-node.css";
 import Dagre from '@dagrejs/dagre';
 
