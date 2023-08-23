@@ -1,6 +1,5 @@
 import { memo } from "react";
 import { Handle, NodeProps, Position } from "reactflow";
-import { useCallback } from 'react';
 
 import Molecule from "./Molecule";
 import React from "react";
@@ -11,9 +10,6 @@ const MoleculeNode = ({
                           targetPosition = Position.Right,
                           sourcePosition = Position.Bottom
                       }: NodeProps) => {
-    const onChange = useCallback((evt: { target: { value: any; }; }) => {
-        console.log(evt.target.value);
-    }, []);
     return (
         <div className=".react-flow__node-molecule">
             <Handle

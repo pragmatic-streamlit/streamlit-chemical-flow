@@ -25,6 +25,8 @@ import {
 // @ts-ignore
 import MoleculeNode from "./MoleculeNode";
 
+import MoleculeEdge from "./MoleculeEdge";
+
 enum StreamlitEventType {
     NODE = "node",
     EDGE = "edge"
@@ -67,11 +69,13 @@ const getLayoutElements = (nodes: Node[], edges: Edge[], direction = 'LR') => {
 
         return node;
     });
-
     return { nodes, edges };
 }
 
 const nodeTypes = {molecule: MoleculeNode};
+const edgeTypes = {
+  molecule: MoleculeEdge,
+};
 const defaultViewport = { x: 0, y: 0, zoom: 0.5 };
 function ChemicalFlow({args}: ComponentProps): React.JSX.Element {
     // set height
@@ -140,6 +144,7 @@ function ChemicalFlow({args}: ComponentProps): React.JSX.Element {
                        onNodeClick={onNodeClick}
                        onEdgeClick={onEdgeClick}
                        nodeTypes={nodeTypes}
+                       edgeTypes={edgeTypes}
                        fitView
                        defaultViewport={defaultViewport}
                        attributionPosition="top-left" >
