@@ -90,8 +90,9 @@ if not _RELEASE:
             'source': '2',
             'target': '3',
             'label': 'expert',
-            'type': 'step',
+            'type': 'molecule',
             'animated': True,
+            'data': {'catalyst': 'CCO'},
             'markerEnd': {'type': 'arrow', 'color': '#000'}
         }
     ]
