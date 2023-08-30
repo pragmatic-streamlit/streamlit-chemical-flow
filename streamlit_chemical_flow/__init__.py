@@ -34,6 +34,16 @@ if not _RELEASE:
         # (This is useful while your component is in development.)
         url="http://localhost:3001",
     )
+    molecule_item_component_func = components.declare_component(
+        # We give the component a simple, descriptive name ("streamlit_chemical_flow_component"
+        # does not fit this bill, so please choose something better for your
+        # own component :)
+        "streamlit_chemical_flow_molecule_item_component",
+        # Pass `url` here to tell Streamlit that the component will be served
+        # by the local dev server that you run via `npm run start`.
+        # (This is useful while your component is in development.)
+        url="http://localhost:3001",
+    )
 else:
     # When we're distributing a production version of the component, we'll
     # replace the `url` param with `path`, and point it to to the component's
@@ -41,6 +51,7 @@ else:
     parent_dir = os.path.dirname(os.path.abspath(__file__))
     build_dir = os.path.join(parent_dir, "frontend/build")
     _component_func = components.declare_component("streamlit_chemical_flow_component", path=build_dir)
+    molecule_item_component_func = components.declare_component("streamlit_chemical_flow_molecule_item_component", path=build_dir)
 
 
 def chemical_flow(nodes, edges, height="240px", key=None):
@@ -50,6 +61,14 @@ def chemical_flow(nodes, edges, height="240px", key=None):
         "edges": edges
     }
     return _component_func(key=key, default=None, **params)
+
+
+def molecule_item(value, height="60px", key=None):
+    params = {
+        "height": height,
+        "value": value
+    }
+    return molecule_item_component_func(key=key, default=None, **params)
 
 
 # Add some test code to play with the component while it's in development.
@@ -100,3 +119,6 @@ if not _RELEASE:
     if selected_event:
         st.json(selected_event)
         print(f"selected {selected_event}")
+
+    molecule_item(value="CCO")
+    molecule_item(value="CN")
