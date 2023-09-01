@@ -2,8 +2,6 @@ import React from 'react';
 import { BaseEdge, EdgeLabelRenderer, EdgeProps, getBezierPath } from 'reactflow';
 import Molecule from "./Molecule";
 
-import './molecule-node.css';
-
 export default function CustomEdge({
   id,
   data,
@@ -40,7 +38,6 @@ export default function CustomEdge({
             pointerEvents: 'all',
           }}
           className="nodrag nopan">
-            <div className="edge-label">{data?.catalyst}</div>
             <div style={{ width: '100%', height: '100%' }}>
               <Molecule smiles={data?.catalyst} />
             </div>

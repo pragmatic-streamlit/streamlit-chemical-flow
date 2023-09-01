@@ -1,0 +1,17 @@
+
+.molecule-item {
+    margin: 10px;
+    border: 1px solid #e2dfdf;
+    cursor: pointer;
+
+}
+.molecule-item.clicked {
+    border: 1px #e2dfdf;
+    box-shadow: 0 0 0 1px #000;
+}
+.molecule-item:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+div[data-handlepos] {
+    opacity: 0;
+}

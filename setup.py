@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='streamlit-chemical-flow',
-    version='0.0.2',
+    version='0.0.6-dev3',
     author='liupeng',
     author_email='liupeng.dalian@gmail.com',
     packages=find_packages(),

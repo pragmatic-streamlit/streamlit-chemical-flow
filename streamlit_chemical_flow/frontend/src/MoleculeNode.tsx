@@ -19,9 +19,6 @@ const MoleculeNode = ({
 
             />
             <div>
-                <div>
-                    <label>{data?.label}</label>
-                </div>
                 <div style={{ width: '100%', height: '100%' }}>
                     <Molecule smiles={data?.value} />
                 </div>

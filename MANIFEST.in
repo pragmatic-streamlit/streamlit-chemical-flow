@@ -1,1 +1,2 @@
 recursive-include streamlit_chemical_flow/frontend/build *
+recursive-include streamlit_chemical_flow/streamlit_chemical_item/frontend/build *
