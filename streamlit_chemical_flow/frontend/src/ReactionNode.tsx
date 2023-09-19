@@ -4,19 +4,13 @@ import { Handle, NodeProps, Position } from "reactflow";
 import Molecule from "./Molecule";
 import React from "react";
 
-const MoleculeNode = ({
-                          data,
+const ReactionNode = ({
                           isConnectable,
-                          targetPosition = Position.Right,
-                          sourcePosition = Position.Left
+                          targetPosition = Position.Left,
+                          sourcePosition = Position.Right
                       }: NodeProps) => {
-    const purpleMode = data?.commercial
-    let className = "node-molecule"
-    if (purpleMode===false) {
-        className = "node-molecule-purple"
-    }
     return (
-        <div className={className}>
+        <div className=".react-flow__node-reaction">
             <Handle
                 type="target"
                 position={targetPosition}
@@ -24,7 +18,7 @@ const MoleculeNode = ({
             />
             <div>
                 <div style={{ width: '100%', height: '100%' }}>
-                    <Molecule smiles={data?.value} />
+                    +
                 </div>
             </div>
             <Handle
@@ -36,6 +30,6 @@ const MoleculeNode = ({
     );
 };
 
-MoleculeNode.displayName = "MoleculeNode";
+ReactionNode.displayName = "ReactionNode";
 
-export default memo(MoleculeNode);
+export default memo(ReactionNode);

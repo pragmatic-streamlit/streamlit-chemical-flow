@@ -3,7 +3,7 @@
     margin: 10px;
     border: 1px solid #e2dfdf;
     cursor: pointer;
-
+    overflow: auto;
 }
 .molecule-item.clicked {
     border: 1px #e2dfdf;

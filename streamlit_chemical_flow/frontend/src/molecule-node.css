@@ -1,13 +1,23 @@
-
-.react-flow__node-molecule {
+.node-molecule {
     margin: 10px;
-    border: 1px solid #e2dfdf;
+    border: 1.5px solid #52c41a;
 }
-.react-flow__node-molecule.selectable.selected, .react-flow__node-molecule.selectable:focus, .react-flow__node-molecule.selectable:focus-visible {
-    border: 1px #e2dfdf;
+.node-molecule-purple {
+    margin: 10px;
+    border: 1.5px solid #771ac4;
+}
+.node-molecule.selectable.selected, .node-molecule.selectable:focus, .node-molecule.selectable:focus-visible {
+    border: 1.5px #52c41a;
     box-shadow: 0 0 0 1px #000;
 }
-.react-flow__node-molecule:hover {
+.node-molecule-purple.selectable.selected, .node-molecule-purple.selectable:focus, .node-molecule-purple.selectable:focus-visible {
+    border: 1.5px #52c41a;
+    box-shadow: 0 0 0 1px #000;
+}
+.node-molecule-purple:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+.node-molecule:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 div[data-handlepos] {

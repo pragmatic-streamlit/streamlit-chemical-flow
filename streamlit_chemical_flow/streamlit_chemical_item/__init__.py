@@ -1,4 +1,3 @@
-
 import os
 import streamlit.components.v1 as components
 from base64 import b64encode
@@ -7,7 +6,7 @@ from base64 import b64encode
 # the component, and True when we're ready to package and distribute it.
 # (This is, of course, optional - there are innumerable ways to manage your
 # release process.)
-_DEVELOP_MODE = os.getenv('DEVELOP_MODE')
+_DEVELOP_MODE = os.getenv("DEVELOP_MODE")
 # _DEVELOP_MODE = True
 
 _RELEASE = not _DEVELOP_MODE
@@ -40,14 +39,13 @@ else:
     # build directory:
     parent_dir = os.path.dirname(os.path.abspath(__file__))
     build_dir = os.path.join(parent_dir, "frontend/build")
-    _component_func = components.declare_component("streamlit_molecule_item_component", path=build_dir)
+    _component_func = components.declare_component(
+        "streamlit_molecule_item_component", path=build_dir
+    )
 
 
 def molecule_item(value, height="100px", key=None):
-    params = {
-        "height": height,
-        "value": value
-    }
+    params = {"height": height, "value": value}
     return _component_func(key=key, **params)
 
 
@@ -56,18 +54,27 @@ def molecule_item(value, height="100px", key=None):
 # app: `$ streamlit run streamlit_chemical_flow_component/__init__.py`
 if not _RELEASE:
     import streamlit as st
-    st.text("debug mode")
-    molecule_item(value="CC(=O)Oc1ccccc1C(=O)O", key="a", height="100px")
+
+    st.header("debug mode")
+    #
+    molecule_item(
+        value="CC(C)(C)[Si](C)(C)OC[C@H]1OC(O)(c2ccc3c(N)ncnn23)[C@H](O[Si](C)(C)C(C)(C)C)[C@@H]1O[Si](C)(C)C(C)(C)C",
+        key="a",
+        height="250px",
+    )
     col1, col2, col3 = st.columns(3)
     with col1:
-        a = molecule_item(value="CN")
+        a = molecule_item(value="CC(=O)Oc1ccccc1C(=O)O", height="200px")
         if a:
             st.text(a)
     with col2:
-        a = molecule_item(value="CCO")
+        a = molecule_item(
+            value="CC(C)(C)[Si](C)(C)OC[C@H]1OC(O)(c2ccc3c(N)ncnn23)[C@H](O[Si](C)(C)C(C)(C)C)[C@@H]1O[Si](C)(C)C(C)(C)C",
+            height="200px",
+        )
         if a:
             st.text(a)
     with col3:
-        a = molecule_item(value="CC(=O)Oc1ccccc1C(=O)O", key="b")
+        a = molecule_item(value="CC(=O)Oc1ccccc1C(=O)O", key="b", height="200px")
         if a:
             st.text(a)

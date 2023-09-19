@@ -1,15 +1,15 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='streamlit-chemical-flow',
-    version='0.0.6-dev3',
-    author='liupeng',
-    author_email='liupeng.dalian@gmail.com',
+    name="streamlit-chemical-flow",
+    version="0.0.9",
+    author="liupeng",
+    author_email="liupeng.dalian@gmail.com",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=['streamlit'],
-    url='https://github.com/pragmatic-streamlit/streamlit-chemical-flow',
-    long_description=open('README.md').read(),
+    install_requires=["streamlit"],
+    url="https://github.com/pragmatic-streamlit/streamlit-chemical-flow",
+    long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     classifiers=[
         "Intended Audience :: Developers",
@@ -22,5 +22,5 @@ setup(
         "Programming Language :: Python :: 3.10",
         "License :: OSI Approved",
         "Topic :: Scientific/Engineering",
-    ]
+    ],
 )

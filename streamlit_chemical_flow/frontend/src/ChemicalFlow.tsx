@@ -1,8 +1,8 @@
 import 'reactflow/dist/style.css';
 import "./molecule-edge.css";
 import "./molecule-node.css";
+import "./reaction-node.css"
 import Dagre from '@dagrejs/dagre';
-
 import 'antd/dist/reset.css'
 import React, {useEffect, useCallback} from 'react';
 import ReactFlow, {
@@ -25,6 +25,8 @@ import {
 
 // @ts-ignore
 import MoleculeNode from "./MoleculeNode";
+
+import ReactionNode from "./ReactionNode";
 
 import MoleculeEdge from "./MoleculeEdge";
 
@@ -58,8 +60,12 @@ const getLayoutElements = (nodes: Node[], edges: Edge[], direction = 'LR') => {
 
     nodes.forEach((node: Node) => {
         const nodeWithPosition = g.node(node.id);
-        node.targetPosition = isHorizontal ? 'left' as Position : 'top' as Position;
-        node.sourcePosition = isHorizontal ? 'right' as Position : 'bottom' as Position;
+        if (!(node.sourcePosition)) {
+            node.sourcePosition = isHorizontal ? 'right' as Position : 'bottom' as Position;
+        }
+        if (!(node.targetPosition)) {
+            node.targetPosition = isHorizontal ? 'left' as Position : 'top' as Position;
+        }
 
         // We are shifting the dagre node position (anchor=center center) to the top left
         // so it matches the React ChemicalFlow node anchor point (top left).
@@ -73,7 +79,7 @@ const getLayoutElements = (nodes: Node[], edges: Edge[], direction = 'LR') => {
     return { nodes, edges };
 }
 
-const nodeTypes = {molecule: MoleculeNode};
+const nodeTypes = {molecule: MoleculeNode, reaction: ReactionNode};
 const edgeTypes = {
   molecule: MoleculeEdge,
 };
@@ -113,10 +119,14 @@ function ChemicalFlow({args}: ComponentProps): React.JSX.Element {
     const onNodeClick = (event: React.MouseEvent, node: any) => {
         // Handle node click event
         console.log('Node clicked:', node);
-        Streamlit.setComponentValue({
-            type: StreamlitEventType.NODE,
-            nodes: [node]
-        } as StreamlitEvent)
+        if (node.type === "molecule") {
+            Streamlit.setComponentValue({
+                type: StreamlitEventType.NODE,
+                nodes: [node]
+            } as StreamlitEvent)
+        } else {
+            console.log("skip node event for type")
+        }
     };
 
     const onEdgeClick = (event: React.MouseEvent, edge: any) => {

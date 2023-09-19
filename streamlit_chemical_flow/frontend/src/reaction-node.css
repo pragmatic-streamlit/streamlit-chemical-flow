@@ -1,0 +1,11 @@
+
+.react-flow__node-reaction {
+}
+.react-flow__node-reaction.selectable.selected, .react-flow__node-reaction.selectable:focus, .react-flow__node-reaction.selectable:focus-visible {
+    border: 1px #e2dfdf;
+}
+.react-flow__node-reaction:hover {
+}
+div[data-handlepos] {
+    opacity: 0;
+}
